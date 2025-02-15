@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: whitesmoke;
+}
+.aqua-shadow {
+  filter: drop-shadow(0 0 10px #E7237C);
+  /* filter: drop-shadow(0 0 10px rgba(252, 253, 253, 0.932)); */
+}
