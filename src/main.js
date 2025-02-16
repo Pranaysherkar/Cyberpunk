@@ -63,7 +63,7 @@ function checkLoadingComplete() {
 
 // Load HDR Environment
 const rgbeLoader = new RGBELoader();
-rgbeLoader.load('/photostudio_4k.hdr', (texture) => {
+rgbeLoader.load('./photostudio_4k.hdr', (texture) => {
     envMap = pmremGenerator.fromEquirectangular(texture).texture;
     scene.environment = envMap;
     texture.dispose();
@@ -76,7 +76,7 @@ rgbeLoader.load('/photostudio_4k.hdr', (texture) => {
 // Load 3D Model with Progress
 const loader = new GLTFLoader();
 loader.load(
-    '/DamagedHelmet.gltf',
+    './DamagedHelmet.gltf',
     (gltf) => {
         model = gltf.scene;
         scene.add(model);
@@ -85,7 +85,8 @@ loader.load(
     },
     (xhr) => {
         if (xhr.total > 0) {
-            const percent = Math.round((xhr.loaded / xhr.total) * 100);
+            let percent = Math.round((xhr.loaded / xhr.total) * 100);
+            percent = Math.max(0, Math.min(100, percent)); // ✅ Ensure it's between 0-100
             loadingText.innerText = `Loading... ${percent}%`;
         } else {
             loadingText.innerText = "Loading...";
@@ -93,6 +94,7 @@ loader.load(
     },
     (error) => console.error("GLTF Load Error:", error)
 );
+
 // Mouse Move Interaction
 window.addEventListener("mousemove", (e) => {
     if (model) {

@@ -1,0 +1,9 @@
+[[headers]]
+  for = "/*.gltf"
+  [headers.values]
+    Content-Type = "model/gltf+json"
+
+[[headers]]
+  for = "/*.hdr"
+  [headers.values]
+    Content-Type = "application/octet-stream"
