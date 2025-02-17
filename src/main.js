@@ -76,7 +76,7 @@ rgbeLoader.load('/photostudio_4k.hdr', (texture) => {
 // Load 3D Model with Progress
 const loader = new GLTFLoader();
 loader.load(
-    '/DamagedHelmet.gltf',
+    '/DamagedHelmet-v1.glb',
     (gltf) => {
         model = gltf.scene;
         scene.add(model);
